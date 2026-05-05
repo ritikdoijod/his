@@ -1,0 +1,10 @@
+@baseUrl = http://localhost:4001
+
+###
+POST {{baseUrl}}/login
+Content-Type: application/json
+
+{
+  "username": "testuser",
+  "password": "testpassword"
+}
