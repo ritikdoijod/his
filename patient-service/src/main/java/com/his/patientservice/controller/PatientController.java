@@ -19,7 +19,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 public class PatientController {
     private final PatientService patientService;
 
-    @PostMapping("/")
+    @PostMapping
     public PatientResponse createPatient(@RequestBody PatientRequest patientRequest) {
         return patientService.createPatient(patientRequest);
     }

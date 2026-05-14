@@ -1,0 +1,12 @@
+@baseUrl = http://localhost:4002/api
+
+###
+POST {{baseUrl}}/patients
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJmNDE1NmEzZi0xZWI5LTQwMzctYWQ5MS1mZTAyYTA0MGQxYzAiLCJuYW1lIjoiVGVzdCBQYXRpZW50MSIsImFkbWluIjp0cnVlLCJpYXQiOjE1MTYyMzkwMjJ9.h3oQgnfZU__C0LcASwsd6KO9ITOzbjFfKdr-Nm6shZ4n_YTHLCi8dm5-xLFiKcAhmJaR2yknSXnhmYwAQ4-SwUTsuGOtfmyTeCKuofhBnKZSpktRR5hkqKzWLt6mOYNxEJYOXrK-GbdkZHhPJhfKIvlQpVtr8GbULYcOBzH2620q6xoIjnuKJxbA142CE2idF1eI7GRpgLoiDw3gVXKXbi-oP8R9ITLjJSgk7EVykVzV5lfkXb-oGYYW0kRhkzgNVajTdm_iVaLnJPiXFfWU03sopPo1_Knoir5CW_5mlle4p1cwpn35L3U_v5R3al8VpPgoa0ZP6WJMeri9kUIJEw
+
+{
+  "firstName": "Test",
+  "lastName": "Patient1",
+  "email": "test.patient1@example.com"
+}

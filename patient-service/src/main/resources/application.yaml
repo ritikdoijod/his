@@ -7,5 +7,16 @@ spring:
     username: admin
     password: StrongPass
 
+  jpa:
+    hibernate:
+      ddl-auto: update
+
+  jackson:
+    mapper:
+      sort-properties-alphabetically: false
+
 server:
   port: 4002
+
+jwt:
+  public-key-path: /home/ritik/repos/his/patient-service/keys/public.pem
