@@ -1,0 +1,21 @@
+pipeline {
+    agent any
+
+    stage {
+        stage('Checkout') {
+            steps {
+                checkout scm
+            }
+        }
+
+        stage('Test') {
+            steps {
+                dir('auth-service') {
+                    sh  """
+                    echo Test
+                    """
+                }
+            }
+        }
+    }
+}

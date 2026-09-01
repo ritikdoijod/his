@@ -1,0 +1,8 @@
+@baseUrl = http://localhost:4001
+
+### Get Token
+POST {{baseUrl}}/oauth2/token
+Authorization: Basic YWRtaW46c3Ryb25ncGFzcw==
+Content-Type: application/x-www-form-urlencoded
+
+grant_type=client_credentials&scope=patient:read
