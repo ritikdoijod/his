@@ -12,7 +12,27 @@ pipeline {
             steps {
                 dir('auth-service') {
                     sh  """
-                    echo Test
+                    ./mvnw test
+                    """
+                }
+            }
+        }
+
+        stage('Package') {
+            steps {
+                dir('auth-service') {
+                    sh """
+                    ./mvnw package -DskipTests
+                    """
+                }
+            }
+        }
+
+        stage('Build') {
+            steps {
+                dir('auth-service') {
+                    sh """
+                    docker build -t auth-service:${IMAGE_TAG} .
                     """
                 }
             }
