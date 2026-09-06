@@ -1,15 +1,37 @@
 pipeline {
     agent any
 
+    environment {
+        AWS_ACCOUNT_ID = '783951397575'
+        AWS_REGION = 'us-east-1'
+        ECR_REPOSITORY = 'auth-service-repository'
+        ECR_REGISTRY = "${AWS_ACCOUNT_ID}.dkr.ecr.${AWS_REGION}.amazonaws.com/${ECR_REPOSITORY}"
+    }
+
     stages {
         stage('Build') {
             steps {
                 dir('auth-service') {
                     sh """
-                    docker build -t auth-service:${BUILD_NUMBER} .
+                    docker build -t ${ECR_REGISTRY}/auth-service:${BUILD_NUMBER} .
                     """
                 }
             }
         }
+
+        stage('Push to ECR') {
+            steps {
+                sh """
+                aws ecr get-login-password \
+                --region ${AWS_REGION} \
+                | docker login \
+                --username AWS \
+                --password-stdin \
+
+                docker push ${ECR_REGISTRY}/auth-service:${BUILD_NUMBER}
+                """
+            }
+        }
     }
+
 }
