@@ -11,7 +11,7 @@ spring:
           client-1:
             registration:
               client-id: dummyclient
-              client-secret: {noop}dummysecret
+              client-secret: "{noop}dummysecret"
               client-authentication-methods: client_secret_basic
               authorization-grant-types: 
                 - client_credentials
