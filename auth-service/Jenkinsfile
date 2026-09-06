@@ -13,7 +13,10 @@ pipeline {
             steps {
                 dir('auth-service') {
                     sh """
-                    docker build -t ${ECR_REGISTRY}/${ECR_REPOSITORY}:${BUILD_NUMBER} .
+                    docker build \
+                    --provenance=false \
+                    -t ${ECR_REGISTRY}/${ECR_REPOSITORY}:${BUILD_NUMBER} \
+                    .
                     """
                 }
             }
